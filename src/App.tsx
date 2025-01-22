@@ -41,37 +41,18 @@ function App() {
     fetch(`http://localhost:8000/produtos/${id}`, {
       method: 'DELETE'
     })
-  .then(resposta=>{
-    if(resposta.status ===200){
-      alert("Produto excluído com sucesso")
-      window.location.reload()
-    }else{
-      alert("Erro ao excluir produto: confira o terminal do backend")
-    }
-  })
+    .then(resposta=>{
+      if(resposta.status ===200){
+        alert("Produto excluído com sucesso")
+        window.location.reload()
+      }else{
+        alert("Erro ao excluir o produto: Confira o terminal do backend")
+      }
+    })
   }
 
   return (
     <>
-
-
-      <header className="site-header">
-
-
-        <nav className="navigation">
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#produtos">Produtos</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-            <Link to="/cadastro-produto">Cadastro de Produto</Link>
-          </ul>
-        </nav>
-
-        <div className="header-actions">
-          <button className="login-button">Login</button>
-        </div>
-      </header>
       {/* Listagem de Produtos */}
       <div className="produtos-container">
       <Link to="/cadastro-produto">Cadastro de Produto</Link>
@@ -88,7 +69,7 @@ function App() {
                 <p className="produto-descricao">{produto.descricao}</p>
                 <button className="botao-comprar">Comprar</button>
                 <button onClick={() => handleExcluir(produto.id)}>Excluir</button>
-                <Link to={`/alterar-produto/${produto}`}>Alterar</Link>
+                <Link to={`/alterar-produto/${produto.id}`}>Alterar</Link>
               </div>
             ))
           }

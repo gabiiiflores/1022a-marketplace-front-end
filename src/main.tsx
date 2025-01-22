@@ -8,23 +8,24 @@ import {
 } from "react-router-dom";
 import CadastroProduto from './componentes/cadastroproduto/CadastroProduto.tsx';
 import AlterarProduto from './componentes/alterarproduto/AlterarProduto.tsx';
+import Header from './componentes/header/Header.tsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <><Header/><App/></>,
   },
   {
     path: "/cadastro-produto",
-    element: <CadastroProduto/>,
+    element: <><Header/><CadastroProduto/></>,
   },
   {
     path: "/alterar-produto/:id",
-    element: <AlterarProduto/>,
+    element: <><Header/><AlterarProduto/></>,
   },
 ]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-      <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </StrictMode>,
 )
